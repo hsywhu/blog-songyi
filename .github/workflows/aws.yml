@@ -1,0 +1,29 @@
+on:
+  push:
+    branches:    
+      - master
+
+name: Sync to EC2
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-18.04
+    steps:
+    - name: AWS SSM Send-Command
+      uses: peterkimzz/aws-ssm-send-command@v1.1.0
+      with:
+        # AWS access key id
+        aws-access-key-id: ${secrets.SONGYI_CA_ACESS_KEY_ID}
+        # AWS secret access key
+        aws-secret-access-key: ${secrets.SONGYI_CA_SECRET_ACCESS_KEY}
+        # Where EC2 instance is
+        aws-region: ${secrets.SONGYI_AWS_REGION}
+        # AWS EC2 Instance id or ids
+        instance-ids: ${secrets.SONGYI_CA_INSTANCE_ID}
+        # Bash command you want to execute
+        command: git pull
+        # Command execution location
+        working-directory: /home/ubuntu/app/blog-songyi
+        # Comment for Send-Command
+        comment: Sync by Github Actions
