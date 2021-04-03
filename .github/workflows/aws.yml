@@ -26,4 +26,4 @@ jobs:
         # Command execution location
         working-directory: /home/ubuntu/app/blog-songyi
         # Comment for Send-Command
-        comment: Sync by Github Actions
+        comment: Synced by Github Actions
