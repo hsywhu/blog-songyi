@@ -14,13 +14,13 @@ jobs:
       uses: peterkimzz/aws-ssm-send-command@v1.1.0
       with:
         # AWS access key id
-        aws-access-key-id: ${secrets.SONGYI_CA_ACESS_KEY_ID}
+        aws-access-key-id: ${{ secrets.SONGYI_CA_ACESS_KEY_ID }}
         # AWS secret access key
-        aws-secret-access-key: ${secrets.SONGYI_CA_SECRET_ACCESS_KEY}
+        aws-secret-access-key: ${{ secrets.SONGYI_CA_SECRET_ACCESS_KEY }}
         # Where EC2 instance is
-        aws-region: ${secrets.SONGYI_CA_AWS_REGION}
+        aws-region: ${{ secrets.SONGYI_CA_AWS_REGION }}
         # AWS EC2 Instance id or ids
-        instance-ids: ${secrets.SONGYI_CA_INSTANCE_ID}
+        instance-ids: ${{ secrets.SONGYI_CA_INSTANCE_ID }}
         # Bash command you want to execute
         command: git pull
         # Command execution location
